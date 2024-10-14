@@ -1,21 +1,50 @@
-**Classification of Handwritten Digits**
+# MNIST Classification using Machine Learning Models
 
-**Project Overview**
+## Project Overview
 
-This project focuses on the classification of handwritten digits using the Keras dataset. Through hands-on experience, the goal is to train a variety of classification algorithms and determine the best one using tools from scikit-learn. This challenging project was completed as part of the JetBrains Academy's curriculum.
+This project demonstrates the application of **machine learning algorithms** for classifying the **MNIST dataset** using a combination of models from **scikit-learn** and **TensorFlow**. The MNIST dataset contains images of handwritten digits (0-9), and the goal is to classify these images accurately.
 
-**Objectives of project**
+The project includes:
 
-    Data Handling: Load and preprocess the dataset containing images of handwritten digits from 0 to 9.
-    
-    Model Training: Explore and train various sklearn classification algorithms.
-    
-    Optimization: Tune model parameters to achieve the best classification results.
-    
-    Evaluation: Compare the performance of different models and identify the most effective algorithm.
+- **Data preprocessing** using normalization and reshaping.
+- Implementation of multiple machine learning models, including:
+  - K-Nearest Neighbors
+  - Decision Tree Classifier
+  - Logistic Regression
+  - Random Forest Classifier
+- **Hyperparameter tuning** using **GridSearchCV**.
+- Model evaluation based on **accuracy score**.
 
-**Technologies Used**
+## Dataset
 
-    Keras: For accessing and utilizing the handwritten digits dataset.
-    
-    scikit-learn: Used for training classification models and optimizing their parameters.
+The **MNIST dataset** is loaded directly using TensorFlow's `keras.datasets` module. The dataset contains 70,000 28x28 pixel grayscale images of handwritten digits. The dataset is split into training and testing sets.
+
+- Training data: 60,000 images
+- Test data: 10,000 images
+
+For the purposes of this project, a smaller subset of the data is used with **6,000 images** for training and evaluation.
+
+## Code Overview
+
+1. **Data Loading**: 
+   - The MNIST dataset is loaded using TensorFlow's built-in `keras.datasets.mnist` loader.
+
+2. **Data Preprocessing**:
+   - The images are reshaped into 1D arrays of size 28x28 = 784 for each image.
+   - The features are **normalized** to improve model performance.
+
+3. **Model Training and Evaluation**: 
+   The following models are trained on the normalized data:
+   - **K-Nearest Neighbors** (KNN)
+   - **Decision Tree Classifier**
+   - **Logistic Regression**
+   - **Random Forest Classifier**
+
+4. **Hyperparameter Tuning**: 
+   **GridSearchCV** is used to find the best hyperparameters for the K-Nearest Neighbors and Random Forest models, tuning parameters such as:
+   - **K-Nearest Neighbors**: `n_neighbors`, `weights`, and `algorithm`
+   - **Random Forest**: `n_estimators`, `max_features`, and `class_weight`
+
+5. **Model Evaluation**: 
+   The models are evaluated using **accuracy** metrics, and the best models are displayed along with their tuned parameters.
+
